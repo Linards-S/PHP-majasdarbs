@@ -1,0 +1,37 @@
+body {
+    font-family: cursive, sans-serif;
+    text-align: center;
+    background-color: #EEE1B1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 5px solid #AA714D;
+}
+
+.buttons a {
+    background-color: #AA714D;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.buttons a:hover {
+    background-color: solid light-brown;
+}
