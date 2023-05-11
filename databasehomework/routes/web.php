@@ -21,4 +21,4 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store')->mi
 Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
 Route::get('/profile/{id}', [UserController::class, 'show'])->name('user.profile');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update')->middleware('auth');
+

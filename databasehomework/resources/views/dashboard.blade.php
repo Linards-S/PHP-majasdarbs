@@ -16,6 +16,7 @@
 <div class="container">
         <div class="header">
         <h1 class="mb-4" style="font-family: cursive;">-Dashboard-</h1>
+        <button class="burger">☰</button>
         <div class="menu">
         <a href="{{ route('posts.create') }}" class="btn-custom">Create Post</a>
         <a href="{{ route('user.profile', ['id' => Auth::id()]) }}" class="btn-custom">My Profile</a>
@@ -28,10 +29,11 @@
             @foreach($posts as $post)
                 
                     <div class="post">
-                        
-                     @if ($post->image)
-    <img src="{{ asset('storage/' . $post->image) }}" alt="Post image" class="post-image">
-@endif
+                        <div class="image-container">
+                            @if($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="Post image" class="post-image">
+                            @endif
+                        </div>  
                         <h3>{{ $post->title }}</h3>
                         <p>{{ $post->content }}</p>
                         <div class="post-data">

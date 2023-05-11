@@ -10,23 +10,35 @@
 </head>
 <body>
 <div class="container">
-        <div class="header">
-        <h1 class="mb-4" style="font-family: cursive;">{{ $user->name }}'s Profile</h1>
-        <div class="menu">
+<div class="header">
+    <h1 class="mb-4" style="font-family: cursive;">{{ $user->name }}'s Profile</h1>
+    <button class="burger">☰</button>
+    <div class="menu" id="menu">
         <a href="{{ route('posts.create') }}" class="btn-custom-danger">Create Post</a>
         <a href="{{ route('dashboard') }}" class="btn-custom-danger">Dashboard</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn-custom-danger">Log Out</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
-        </form></div>
-        </div>
-       <h2 class="mb-3" style="font-family: cursive;">My Posts:</h2> 
+        </form>
+    </div>
+</div>
+       <h2 class="mb-3" style="font-family: cursive;">My Posts:</h2>
+       
+       <div class="row">
        @foreach($posts as $post)
             <div class="post">
-                 <h3>{{ $post->title }}</h3>
+                        <div class="image-container">
+                            @if($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="Post image" class="post-image">
+                            @endif
+                        </div> 
+                <h3>{{ $post->title }}</h3>
                 <p>{{ $post->content }}</p>
+                
+                <div class="post-data">
                 <p>{{ $post->created_at->format('M d, Y') }}</p>
-                <a href="{{ route('user.profile', ['id' => $post->user->id]) }}">{{ $post->user->name }}</a>
+                <!-- <a href="{{ route('user.profile', ['id' => $post->user->id]) }}">{{ $post->user->name }}</a> -->
+                
                 @if(Auth::id() === $post->user_id)
                 <form action="{{ route('posts.destroy', ['id' => $post->id]) }}" method="POST" class="post-delete-btn">
                         @csrf
@@ -34,9 +46,13 @@
                         <button type="submit" class="btn-custom-danger">Delete Post</button>
                     </form>
                 @endif
+                </div>
+                
             </div>
         @endforeach
-        
+        </div>
     </div>
+    <script src="{{ asset('js/menu.js') }}"></script>
+
 </body>
 </html>

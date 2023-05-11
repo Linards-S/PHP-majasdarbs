@@ -10,6 +10,7 @@
 <body>
   <div class="header">
             <h1 class="mb-4" style="font-family: cursive; text-align: center;">Create a New Post!</h1>
+            <button class="burger">☰</button>
             <div class="menu" style="text-align: center;">
                 <a href="{{ route('user.profile', ['id' => Auth::id()]) }}" class="btn-custom-danger">My Profile</a>
                 <a href="{{ route('dashboard') }}" class="btn-custom-danger">Dashboard</a>

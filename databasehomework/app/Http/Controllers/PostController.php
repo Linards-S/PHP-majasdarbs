@@ -25,7 +25,7 @@ class PostController extends Controller
 {
     $request->validate([
         'title' => 'required|max:25',
-        'content' => 'required|max:60',
+        'content' => 'required|max:115',
         'image' => 'nullable|image|max:2048', // Add validation for the image
     ]);
 

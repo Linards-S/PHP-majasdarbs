@@ -80,3 +80,20 @@ button[type="submit"]:hover {
     background-color: #FFFDD0;
     text-decoration: none;
 }
+.burger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 776px) {
+    .menu {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+}

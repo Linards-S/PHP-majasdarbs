@@ -1,30 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #EEE1B1;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .post {
-    background-color: #FFFDD0;
-    padding: 20px;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 3px solid #AA714D;
-    margin-bottom: 20px;
-    position: relative;
-}
-.btn-custom {
-    background-color: #EEE1B1;
-    color: black;
-    border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-
-}
-.btn-custom:hover {
+    padding: 10px;
+    width: 100%;
     background-color: #FFFDD0;
-    text-decoration: none;
+    overflow: hidden; /* Added this line to make sure children don't overflow */
 }
 
+.post h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.post p {
+    flex-grow: 1;  
+    max-height: 15%;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: 350px;
+    gap: 1rem;
+}
+
+.header{
+    display: flex;
+    background-color: #AA714D;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    min-width: 350px;
+}
+
+.btn-custom,
 .btn-custom-danger {
     background-color: #EEE1B1;
     color: black;
@@ -35,25 +61,82 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.btn-custom:hover,
 .btn-custom-danger:hover {
     background-color: #FFFDD0;
     text-decoration: none;
-    
-}
-.post-delete-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
 }
 
-.post-delete-btn:hover{
-    border: 1.5px solid #AA714D;
+.post:hover {
+    transform: scale(1.20);
+    transition: all 0.5s ease;
+    cursor: pointer;
 }
 
-.header{
-    display: flex;
-    background-color: #AA714D;
+.post-image{
+    width: 100%;
+    object-fit: contain;
+    border: 3px solid #AA714D;
     border-radius: 10px;
-    justify-content: space-between;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-data{
+    display: flex;
+    justify-content: space-around; /* Updated from space-between to space-around */
+    flex-wrap: wrap; /* Added this line to allow the items to wrap if necessary */
+    width: 100%; /* Ensures the post-data div takes up the full width of the post */
+}
+
+.post-data a {
+    align-self: center;
+    color: #AA714D;
+}
+
+p {
+    margin-left: 3%;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: #171313;
+    margin-right: 3%;
+    position: relative;
+    text-align: justify;
+ }
+
+ .image-container
+ {
+    height: 50%;
+    width: fit-content; 
+    display: inline-block;
+    align-self: center;
+ }
+
+.post-delete-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-bottom {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    padding: 0px 10px;}
+}
+
+.burger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 776px) {
+    .menu {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+}
